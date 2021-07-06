@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'csv-server-monitor'
+scrape_configs:
+  - job_name: 'csvserver'
+    static_configs:
+      - targets: ['csvserver:9300']
