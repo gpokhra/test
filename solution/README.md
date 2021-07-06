@@ -8,14 +8,14 @@ docker run -it -d infracloudio/csvserver:latest
 Check if it's running
 ```
 docker ps -a | grep csvserver
-5810050c271a   infracloudio/csvserver:latest   "/csvserver/csvserver"   2 minutes ago   Exited (1) 2 minutes ago  boring_benz
+278b2e7d5ebe   infracloudio/csvserver:latest   "/csvserver/csvserver"   2 minutes ago   Exited (1) 2 minutes ago  bold_mahavira
 ```
 # The container is Exited
 
 2. If it's failing then try to find the reason
 ```
-docker logs 5810050c271a
-2021/06/18 15:50:36 error while reading the file "/csvserver/inputdata": open /csvserver/inputdata: no such file or directory
+docker logs 278b2e7d5ebe
+2021/07/06 09:39:32 error while reading the file "/csvserver/inputdata": open /csvserver/inputdata: no such file or directory
 ```
 # The container needs an input file to start
 
@@ -32,7 +32,7 @@ docker run -it -d -v ${PWD}/inputFile:/csvserver/inputdata:Z infracloudio/csvser
 
    Shell Access:
 ```
-docker exec -it 6d8f507a97a1 bash
+docker exec -it 72097a81a2fc bash
 [root@6d8f507a97a1 csvserver]#
 ```
 Find application port:
@@ -44,7 +44,7 @@ tcp6       0      0 :::9300                 :::*                    LISTEN      
 ```
 Answer: ```9300```
 
-Stop the container: ```docker stop 6d8f507a97a1``` Remove the container: ```docker rm 6d8f507a97a1```
+Stop the container: ```docker stop 72097a81a2fc``` Remove the container: ```docker rm 72097a81a2fc```
 
 6. Same as (4), run the container and make sure the application is accessible on the host at http://localhost:9393 .Set the environment variable CSVSERVER_BORDER to have value Orange
 ```
