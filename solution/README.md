@@ -1,5 +1,5 @@
-##CSV Server Part 1 Commands
-#Pre-Requisites
+## CSV Server Part 1 Commands
+# Pre-Requisites
 
 1. Run the container image infracloudio/csvserver:latest in background and check if it's running.
 ```
@@ -10,14 +10,14 @@ Check if it's running
 docker ps -a | grep csvserver
 5810050c271a   infracloudio/csvserver:latest   "/csvserver/csvserver"   2 minutes ago   Exited (1) 2 minutes ago  boring_benz
 ```
-#The container is Exited
+# The container is Exited
 
 2. If it's failing then try to find the reason
 ```
 docker logs 5810050c271a
 2021/06/18 15:50:36 error while reading the file "/csvserver/inputdata": open /csvserver/inputdata: no such file or directory
 ```
-#The container needs an input file to start
+# The container needs an input file to start
 
 3. Write a bash script gencsv.sh to generate a file named inputFile
    File is present under solution directory
@@ -59,13 +59,13 @@ Content-Length: 642
 Content-Type: text/html; charset=utf-8
 ```
 
-##CSV Server Part 2 Commands
+## CSV Server Part 2 Commands
 ```
  `docker-compose.yaml` is present in solution directory
   docker-compose -f docker-compose.yaml up -d
 ```
 
-##CSV Server Part 3 Commands
+## CSV Server Part 3 Commands
   ```
   `docker-compose.yaml` is updated with prometheus container
    prometheus config file is also present in solution directory
